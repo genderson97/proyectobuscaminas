@@ -86,7 +86,19 @@ int totalminas =10;
 
     public int getTotalminas() {
         return totalminas;
-    }}
+    }    
+    public void juega(){
+    System.out.println("usted posee " + intento + " intentos");
+for (int x=0; x < getTablero().length; x++) {
+  System.out.print("|");
+  for (int y=0; y < getTablero()[x].length; y++) {
+    System.out.print (getTablero()[x][y]);
+    if (y==getTablero()[x].length-1) { 
+      } else {
+        System.out.print("\t");
+   } 
+}
+    System.out.println("|");}}}
 
 
 
