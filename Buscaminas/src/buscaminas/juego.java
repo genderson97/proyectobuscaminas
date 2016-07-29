@@ -98,7 +98,18 @@ for (int x=0; x < getTablero().length; x++) {
         System.out.print("\t");
    } 
 }
-    System.out.println("|");}}}
+    System.out.println("|");
+    do{
+    	    b1=Math.random()*5;
+            b2=Math.random()*5;  
+            b1=(int)b1;
+            b2=(int)b2;
+            if  (b2!=0 && b1!=0 && b2!=5-1 && b1!=5-1){
+   tablero[(int)b1][(int) b2 ]=1;
+   numtotalminas++;
+}}
+    while(numtotalminas<=10);   }}}
+ 
 
 
 
