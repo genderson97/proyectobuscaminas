@@ -17,17 +17,19 @@ import javax.swing.JOptionPane;
  **/
 public class juego { 
     Scanner leer = new Scanner (System.in);
+    int filas = 0;
+    int columnas = 0;
 //matrices para crear tablero [filax][columnay]
-int tablero[][]= new int[5][5];
+int tablero[][]= new int[filas][columnas];
 //variables para crear las bombas
 double b1=0;
 double b2=0;
 //variable de tipo entero llamda numtotalminas
-int numtotalminas=0;
+int numtotalminas=20;
 //variable de tipo entero llamada intento
 int intento=50;
 //variable de tipo enterollamada total de minas
-int totalminas =10;
+int totalminas =0;
 //constructores 
     public juego() {//costructor vacio
     }
@@ -88,27 +90,37 @@ int totalminas =10;
         return totalminas;
     }    
     public void juega(){
+   //impresion para pedir las filas
+        filas = Integer.parseInt(JOptionPane.showInputDialog("Digita las filas de la matriz"));
+        //impresion parapedir las columnas
+        columnas = Integer.parseInt(JOptionPane.showInputDialog("Digita las columnas de la matriz"));
+           int tablero[][]= new int[filas][columnas]; //Pedimos los datos
     System.out.println("usted posee " + intento + " intentos");
-for (int x=0; x < getTablero().length; x++) {
-  System.out.print("|");
-  for (int y=0; y < getTablero()[x].length; y++) {
-    System.out.print (getTablero()[x][y]);
-    if (y==getTablero()[x].length-1) { 
-      } else {
-        System.out.print("\t");
-   } 
-}
-    System.out.println("|");
+    for(int i=0;i<filas;i++){
+        for(int j=0;j<columnas;j++){
+            tablero[i][j]=0;
+            System.out.print(tablero[i][j]+" "); 
+        }
+        System.out.println(); 
+    }                   
+    int sum=0; //variable que sumara todos los elementos 
+    for(int i=0;i<tablero.length;i++){ //Tamaño de filas
+        for(int j=0;j<tablero[0].length;j++){ //Tamaño de columnas
+            sum+=tablero[i][j];
+        }
     do{
-    	    b1=Math.random()*5;
-            b2=Math.random()*5;  
+    	    b1=Math.random()*filas;
+            b2=Math.random()*columnas;  
             b1=(int)b1;
             b2=(int)b2;
-            if  (b2!=0 && b1!=0 && b2!=5-1 && b1!=5-1){
+            if  (b2!=0 && b1!=0 && b2!=columnas-1 && b1!=filas-1){
    tablero[(int)b1][(int) b2 ]=1;
    numtotalminas++;
 }}
-    while(numtotalminas<=10);   }}}
+    while(numtotalminas<=filas);   
+}
+  }}
+
  
 
 
